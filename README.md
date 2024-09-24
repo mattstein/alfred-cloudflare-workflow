@@ -4,7 +4,7 @@ Launch Cloudflare zone details in a browser.
 
 ![Workflow screenshot](resources/screenshot.png)
 
-Custom theme using [Berkeley Mono](https://berkeleygraphics.com/typefaces/berkeley-mono/).
+Screenshot using the dark variant of my [custom theme](https://github.com/mattstein/alfred-theme).
 
 ## Installation
 
