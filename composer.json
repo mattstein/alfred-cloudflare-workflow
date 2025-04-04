@@ -9,7 +9,7 @@
   "license": "MIT",
   "require": {
     "joetannenbaum/alfred-workflow": "dev-master",
-    "cloudflare/sdk": "^1.3"
+    "cloudflare/sdk": "dev-master#541fb4e2c9942a3b660bb6a0db676f7c851c144c"
   },
   "repositories": [
     {

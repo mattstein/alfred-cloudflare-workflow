@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "48c6c91407cf0f07ecb0cbe621f9435a",
+    "content-hash": "30d3fa310ac3ab53626157315df3bb7c",
     "packages": [
         {
             "name": "cloudflare/sdk",
-            "version": "1.4.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cloudflare/cloudflare-php.git",
-                "reference": "2d3f198773e865b5de2357d7bdbc52bdf42e8f97"
+                "reference": "541fb4e2c9942a3b660bb6a0db676f7c851c144c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cloudflare/cloudflare-php/zipball/2d3f198773e865b5de2357d7bdbc52bdf42e8f97",
-                "reference": "2d3f198773e865b5de2357d7bdbc52bdf42e8f97",
+                "url": "https://api.github.com/repos/cloudflare/cloudflare-php/zipball/541fb4e2c9942a3b660bb6a0db676f7c851c144c",
+                "reference": "541fb4e2c9942a3b660bb6a0db676f7c851c144c",
                 "shasum": ""
             },
             "require": {
@@ -31,6 +31,7 @@
                 "phpmd/phpmd": "@stable",
                 "phpunit/phpunit": "^5.7"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -701,6 +702,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "cloudflare/sdk": 20,
         "joetannenbaum/alfred-workflow": 20
     },
     "prefer-stable": false,
