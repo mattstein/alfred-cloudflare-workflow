@@ -1,6 +1,20 @@
 {
-    "require": {
-        "joetannenbaum/alfred-workflow": "^1.1",
-        "cloudflare/sdk": "^1.3"
+  "name": "mattstein/alfred-cloudflare-workflow",
+  "type": "project",
+  "description": "Jump to Cloudflare zone settings from Alfred.",
+  "keywords": [
+    "alfred",
+    "cloudflare"
+  ],
+  "license": "MIT",
+  "require": {
+    "joetannenbaum/alfred-workflow": "dev-master",
+    "cloudflare/sdk": "^1.3"
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/mattstein/alfred-workflow"
     }
+  ]
 }
