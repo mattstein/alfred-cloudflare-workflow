@@ -22,6 +22,7 @@ $data = $workflow->cache()->readJson(null, false);
 $lastCached = $data->saved ?? null;
 $now = time();
 $shouldRefreshCache = ! $lastCached || ($now - $lastCached) > $cacheSeconds;
+$collectedZones = [];
 
 if ($shouldRefreshCache) {
     $workflow->logger()->info('Refreshing data...');
@@ -38,12 +39,10 @@ if ($shouldRefreshCache) {
     }
 
     $adapter = new Cloudflare\API\Adapter\Guzzle($authorization);
-    $zones = (new Cloudflare\API\Endpoints\Zones($adapter))->listZones()->result ?? [];
-
-    $workflow->logger()->log((new Cloudflare\API\Endpoints\Zones($adapter))->listZones());
+    collectZoneList($adapter);
 
     $data = (object)[
-        'zones' => stripUnnecessaryZoneProperties($zones),
+        'zones' => stripUnnecessaryZoneProperties($collectedZones),
         'saved' => $now,
     ];
 
@@ -65,6 +64,24 @@ foreach ($zones as $zone) {
 }
 
 $workflow->output();
+
+/**
+ * Fetches zone info across pagination and populates `$collectedZones`.
+ * @param $adapter
+ * @param int $page
+ * @return void
+ */
+function collectZoneList($adapter, int $page = 1): void
+{
+    global $collectedZones;
+    $zonesResponse = (new Cloudflare\API\Endpoints\Zones($adapter))->listZones(page: $page);
+    $zonesResponseInfo = $zonesResponse->result_info;
+    $collectedZones = array_merge($collectedZones, $zonesResponse->result ?? []);
+
+    if ($zonesResponseInfo->page < $zonesResponseInfo->total_pages) {
+        collectZoneList($adapter, $page+1);
+    }
+}
 
 /**
  * Removes properties from each zone that we don’t need to save.
