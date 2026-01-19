@@ -11,10 +11,23 @@
     "joetannenbaum/alfred-workflow": "dev-master",
     "cloudflare/sdk": "dev-master#541fb4e2c9942a3b660bb6a0db676f7c851c144c"
   },
+  "require-dev": {
+    "pestphp/pest": "^3.0"
+  },
   "repositories": [
     {
       "type": "vcs",
       "url": "https://github.com/mattstein/alfred-workflow"
     }
-  ]
+  ],
+  "config": {
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
+  },
+  "scripts": {
+    "test": "pest"
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true
 }
